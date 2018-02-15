@@ -1,59 +1,24 @@
 <div class="panel panel-default">
   <div class="panel-heading clearfix">
-        <div class="row">
-          <p class="contact_name">
-            {{contact?.name}}
-          </p>
-          <div class="row">
-            <div class="pull-left">
-              <img src="{{contact?.imageUrl}}"
-                   alt="{{contact?.name}}"
-                   class="img-responsive"
-                   style="max-height: 100px;
-                   padding-left: 12px"/>
-            </div>
-            <div class="pull-right">
-              <button class="btn btn-primary button_edit">Edit</button>
-              <button class="btn btn-danger" button_delete>Delete</button>
-            </div>
-          </div>
-          </div>
 
+    <h4 class="panel-title pull-left" style="padding-top: 7.4px;">Contact Name: {{contact?.name}}</h4>
+    <hr>
+    <img src="{{contact?.imageUrl}}"
+         alt="{{contact?.name}}"
+         class="image-responsive"
+         style="max-height: 1">
+
+    <div class="panel pull-right">
+      <a routerLink="edit" type="button" class="btn btn-primary">Edit
+      </a>
+      <a (click)="onDelete()" type="button" class="btn btn-danger">Delete
+      </a>
+    </div>
   </div>
   <div class="panel-body">
-    <p class="paragraph1">Email:{{contact?.email}}</p>
-    <p class="paragraph1">Phone:{{contact?.phone}}</p>
-  </div>
-  </div>
-<!--
-<div class="row">
-  <h1>Recipe Name</h1>
-</div>
-<div class="row">
-<div class="col-xs-12">
-  <div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle">Manage Recipe<span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">TO shopping list</a> </li>
-      <li><a href="#">TO shopping list</a> </li>
-      <li><a href="#">TO shopping list</a> </li>
-
-    </ul>
+          <span class="pull-left">
+          <h4>Email: {{ contact.email }}</h4>
+          <h4>Phone: {{ contact.phone}}</h4>
+            </span>
   </div>
 </div>
-</div>
-
-->>
-<!--DROPDOWN MENU
-<div class="row">
-  <div class="col-xs-12">
-    Ingredients
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-Ingedients
-
-  </div>
-</div>
--->

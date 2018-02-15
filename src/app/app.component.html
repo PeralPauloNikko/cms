@@ -1,10 +1,10 @@
-<app-header (selectedFeatureEvent)="switchView($event)"></app-header>
-<div class="container">
+<app-header (selectedFeatureEvent)="selectedMenu = $event"></app-header>
+<div class="container pull-left" [ngSwitch]="selectedMenu">
   <div class="row">
     <div class="col-md-12">
-      <app-documents *ngIf="selectedFeature === 'document'"></app-documents>
-      <app-messages *ngIf="selectedFeature === 'messages'"></app-messages>
-      <app-contacts *ngIf="selectedFeature === 'contacts'"></app-contacts>
+      <app-documents *ngSwitchCase="'documents'"></app-documents>
+      <app-messages *ngSwitchCase="'messages'"></app-messages>
+      <app-contacts *ngSwitchCase="'contacts'"></app-contacts>
     </div>
   </div>
 </div>

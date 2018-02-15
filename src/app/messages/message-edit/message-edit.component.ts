@@ -9,7 +9,7 @@ export class MessageEditComponent implements OnInit {
   @ViewChild ('subjectInput') subjectInputRef: ElementRef;
   @ViewChild ('msgTextInput') msgTextInputRef: ElementRef;
   @Output() addMessageEvent = new EventEmitter<Message>();
-  currentSender = 'Paulo Nikko Peral';
+  currentSender = 'Sharon Miller';
   constructor() { }
 
   ngOnInit() {

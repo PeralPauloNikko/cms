@@ -1,4 +1,3 @@
-
 export class Message {
   public messageId: string;
   public subject: string;
