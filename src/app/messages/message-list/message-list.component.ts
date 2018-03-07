@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Message } from '../message.model';
+import { MessagesService } from '../messages.service';
 @Component({
   selector: 'app-message-list',
   templateUrl: './message-list.component.html',
@@ -12,23 +13,31 @@ export class MessageListComponent implements OnInit {
       '1',
       'Hey!',
       'Lets go on a date',
-      'Paulo Nikko Peral'),
+      'Nikko Peral'),
     new Message('2',
       'Are you serious?',
       ' Its barely Monday, how about Wednesday?',
       'Sarah'),
     new Message('3',
       'Wednesday',
-      'Wednesday might work! I love you',
-      'Paulo Nikko Peral')
+      'Wednesday might work.',
+      'Nikko Peral')
   ];
-
+  constructor(private messageService: MessagesService) { }
+  ngOnInit() {
+    this.messages = this.messageService.getMessages();
+    this.messageService.messageChangeEvent
+      .subscribe(
+        (messages: Message[]) => {
+          this.messages = messages;
+        }
+      );
+  }
   onAddMessage(message: Message) {
     this.messages.push(message);
   }
-  constructor() { }
-
-  ngOnInit() {
+  onSelected(message: Message) {
+    this.messageService.selectedMessageEvent.emit(message);
   }
-
 }
+

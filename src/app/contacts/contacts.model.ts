@@ -1,4 +1,16 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class Contact {
+  constructor(public id: string,
+              public name: string,
+              public email: string,
+              public phone: string,
+              public imageUrl: string,
+              public group: Contact[]) {
+  }
+}
+/*
   public contactId: number;
   public name: string;
   public email: string;
@@ -15,5 +27,5 @@ export class Contact {
   this.group = group;
   }
 }
-
+*/
 

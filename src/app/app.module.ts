@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
-import { ContactsDetailComponent } from './contacts/contacts-detail/contacts-detail.component';
+import { ContactDetailComponent } from './contacts/contacts-detail/contacts-detail.component';
 import { ContactItemComponent } from './contacts/contact-item/contact-item.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageListComponent } from './messages/message-list/message-list.component';
@@ -17,6 +17,9 @@ import { DocumentListComponent } from './documents/document-list/document-list.c
 import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
 import { DocumentItemComponent } from './documents/document-item/document-item.component';
 import {DropdownDirective} from './shared/dropdown.directive';
+import {ContactService} from './contacts/contact.service';
+import {DocumentsService} from './documents/documents.service';
+import {MessagesService} from './messages/messages.service';
 
 
 @NgModule({
@@ -25,7 +28,7 @@ import {DropdownDirective} from './shared/dropdown.directive';
     HeaderComponent,
     ContactsComponent,
     ContactListComponent,
-    ContactsDetailComponent,
+    ContactDetailComponent,
     ContactItemComponent,
     MessagesComponent,
     MessageListComponent,
@@ -40,7 +43,8 @@ import {DropdownDirective} from './shared/dropdown.directive';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [ContactService, DocumentsService, MessagesService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
