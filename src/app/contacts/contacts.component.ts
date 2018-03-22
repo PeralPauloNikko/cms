@@ -9,6 +9,7 @@ import {Contact} from './contacts.model';
 })
 export class ContactsComponent implements OnInit {
 selectedContact: Contact;
+
   constructor(private contactService: ContactService) {
   }
 

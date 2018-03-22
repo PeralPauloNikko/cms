@@ -1,12 +1,17 @@
-
+<a class="list-group-item clearfix"
+ routerLink="{{contact?.id}}"
+routerLinkActive="active">
 <div
-  class="row pt-3 pb-3 m-3 border rounded list-group-item clearfix">
-  <div class="col">
-    <img
-      *ngIf="contact.imageUrl != ''"
-      class="contact-image img-responsive float-right"
-      src="{{ contact?.imageUrl }}"
-      alt="{{ contact?.name }}'s picture">
-    <h5>{{ contact?.name }}</h5>
-  </div>
+  class="pull-left">
+  <h4 class="list-group-item-heading">{{ contact?.name }}</h4>
 </div>
+  <span class="pull-right">
+    <img
+      class="img-responsive"
+      src="{{ contact?.imageUrl }}"
+      alt="{{ contact?.name }}"
+      style="max-height: 50px;">
+
+  </span>
+
+</a>

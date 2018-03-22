@@ -7,6 +7,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 export class ContactService {
   contacts: Contact[] = [];
   contactSelectedEvent = new EventEmitter<Contact>();
+  contactChange: EventEmitter<Contact[]> = new EventEmitter<Contact[]>();
   constructor() {
     this.contacts = MOCKCONTACTS;
   }
