@@ -6,10 +6,11 @@ import { Contact } from '../contacts.model';
   styleUrls: ['./contact-item.component.css']
 })
 export class ContactItemComponent implements OnInit {
-  @Input() contact: Contact;
+@Input() contact: Contact;
   constructor() { }
 
   ngOnInit() {
+  //  console.log(this.contact.imageUrl);
   }
 
 }

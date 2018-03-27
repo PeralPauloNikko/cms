@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Contact } from '../contacts.model';
-import { ContactService } from '../contact.service';
+import {Contact} from '../contacts.model';
+import { ContactService} from "../contact.service";
+
 
 @Component({
   selector: 'app-contact-list',
@@ -8,7 +9,7 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-  contacts: Contact[] = [];
+  contacts: Contact[];
 
   constructor(private contactService: ContactService) {
 
@@ -16,8 +17,9 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() {
     this.contacts = this.contactService.getContacts();
-    this.contactService.contactChange.subscribe((contacts: Contact[]) => {
+    this.contactService.contactChange.subscribe((contacts: Contact[])  => {
       this.contacts = contacts;
     });
   }
+
 }

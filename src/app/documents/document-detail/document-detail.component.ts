@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {DocumentsService} from '../documents.service';
-import {Params, Router, ActivatedRoute} from '@angular/router';
-import {Document} from '../document.model';
-import {WindRefService} from '../../wind-ref.service';
+import { Component, OnInit} from '@angular/core';
+import {DocumentsService} from "../documents.service";
+import { Document} from "../document.model";
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { WindRefService} from '../../wind-ref.service';
 
 @Component({
   selector: 'app-document-detail',
@@ -36,5 +36,6 @@ export class DocumentDetailComponent implements OnInit {
   }
   onDelete(){
     this.documentService.deleteDocument(this.document);
+    this.router.navigate(['/documents']);
   }
 }

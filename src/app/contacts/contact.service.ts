@@ -1,13 +1,14 @@
-import {Injectable, EventEmitter} from '@angular/core';
+import { Injectable, Output, EventEmitter} from "@angular/core";
 import {Contact} from './contacts.model';
-import {MOCKCONTACTS} from './MOCKCONTACTS';
-import {forEach} from '@angular/router/src/utils/collection';
+import { MOCKCONTACTS} from "./MOCKCONTACTS";
+import {Document} from '../documents/document.model';
 
 @Injectable()
 export class ContactService {
   contacts: Contact[] = [];
   contactSelectedEvent = new EventEmitter<Contact>();
-  contactChange: EventEmitter<Contact[]> = new EventEmitter<Contact[]>();
+  contactChange = new EventEmitter<Contact[]>();
+
   constructor() {
     this.contacts = MOCKCONTACTS;
   }
@@ -22,6 +23,20 @@ export class ContactService {
         return contact;
       }
     }
+
     return null;
   }
+
+  deleteContact(contact: Contact) {
+  if (contact === null){
+    return;
+  }
+  const pos = this.contacts.indexOf(contact);
+  if (pos < 0) {
+    return;
+  }
+  this.contacts.splice(pos,1);
+  this.contactChange.emit(this.contacts.slice());
+  }
 }
+
