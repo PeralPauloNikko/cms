@@ -10,6 +10,8 @@
   <div class="panel-body">
     <app-contact-item
       *ngFor="let contact of contacts"
-      [contact]="contact"></app-contact-item>
+      [contact]="contact"
+      [routerLink]="contact?.id" routerLinkActive="active">
+    </app-contact-item>
   </div>
 </div>

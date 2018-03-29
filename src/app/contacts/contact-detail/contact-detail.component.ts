@@ -20,8 +20,6 @@ id: string
       this.contact = this.contactsService.getContact(this.id);
     });
   }
-
-  // the delete button on the detail html
   onDelete() {
     this.contactsService.deleteContact(this.contact);
     this.router.navigate(['/contacts']);

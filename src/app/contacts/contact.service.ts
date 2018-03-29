@@ -38,5 +38,6 @@ export class ContactService {
   this.contacts.splice(pos,1);
   this.contactChange.emit(this.contacts.slice());
   }
+
 }
 
