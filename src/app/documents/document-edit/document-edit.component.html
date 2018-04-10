@@ -45,11 +45,12 @@
       </div>
 
       <div *ngIf="!f.valid"><p class="alert alert-danger">Document title and URL are required fields</p></div>
+      <div class="row" id="groupList" style="min-height: 3rem;"
+dnd-droppable [dropZones]="['contactGroup']" (onDropSuccess)="addToGroup($event)">
 
-      <!--<div class="row" id="groupList" style="min-height: 3rem;"-->
-      <!--dnd-droppable [dropZones]="['contactGroup']" (onDropSuccess)="addToGroup($event)">-->
-      <!--<contactItem *ngFor="let contact of groupContacts; let i = index"></contactItem>-->
+<app-contact-item *ngFor="let contact of groupContacts; let i = index"></app-contact-item>
 
+      </div>
 
       <div class="row">
         <div class="col-xs-12">

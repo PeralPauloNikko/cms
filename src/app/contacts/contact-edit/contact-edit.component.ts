@@ -3,6 +3,7 @@ import {ContactService} from "../contact.service";
 import {NgForm} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Contact} from '../contacts.model';
+
 @Component({
   selector: 'app-contact-edit',
   templateUrl: './contact-edit.component.html',
@@ -15,9 +16,12 @@ export class ContactEditComponent implements OnInit {
   editMode: boolean = false;
   invalidGroupContact: boolean = false;
   hasGroup: boolean = false;
+
   constructor(private contactsService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
+
   ngOnInit() {
+
     this.route.params.subscribe((params: Params) => {
       this.original = this.contactsService.getContact(params['id']);
       if (!this.original) {
@@ -29,11 +33,16 @@ export class ContactEditComponent implements OnInit {
       if (this.hasGroup) {
         this.groupContacts = this.contact.group.slice();
       }
+
     });
+
   }
-  onSubmit(form: NgForm) {
+
+  onSubmit(form: NgForm) { // the purpose of ngForm is to group controls, but not to be a replacement for the <form> tag with all of its capabilities//
     const contact: Contact = new Contact(String(this.contactsService.getMaxId()),
       form.value.name, form.value.email, form.value.phone, form.value.url, this.groupContacts);
+
+
     if (this.editMode) {
       this.contactsService.updateContact(this.original, contact);
     }
@@ -42,9 +51,13 @@ export class ContactEditComponent implements OnInit {
     }
     this.router.navigate(['/contacts']);
   }
+
+
   onCancel() {
     this.router.navigate(['/contacts']);
   }
+
+
   isInvalidContact(newContact: Contact) {
     if (!newContact) {
       return true;
@@ -59,8 +72,10 @@ export class ContactEditComponent implements OnInit {
     }
     return false;
   }
+
   addToGroup($event: any) {
     let selectedContact: Contact = $event.dragData;
+    //console.log(){}
     this.invalidGroupContact = this.isInvalidContact(selectedContact);
     if (this.invalidGroupContact) {
       return;
@@ -69,10 +84,13 @@ export class ContactEditComponent implements OnInit {
     this.groupContacts.push(selectedContact);
     this.invalidGroupContact = false;
   }
+
   onRemoveItem(idx: number) {
     if (idx < 0 || idx >= this.groupContacts.length)
       return;
     this.groupContacts.splice(idx, 1);
     this.invalidGroupContact = false;
   }
+
+
 }

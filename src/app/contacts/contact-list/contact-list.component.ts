@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Contact} from '../contacts.model';
 import { ContactService} from "../contact.service";
-
+import {Document} from '../../documents/document.model';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-contact-list',
@@ -21,7 +22,8 @@ export class ContactListComponent implements OnInit {
       this.contacts = contacts;
     });
   }
-  onSelectedContact(contact: Contact){
+
+  onSelected(contact: Contact){
     this.contactService.contactSelectedEvent.emit(contact);
   }
 
