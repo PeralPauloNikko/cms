@@ -25,6 +25,7 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
 import {WindRefService} from './wind-ref.service';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import {DndModule} from 'ng2-dnd';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 //import {ContactsFilterPipe} from './contacts-filter.pipe';
 
 @NgModule({
@@ -46,6 +47,7 @@ import {DndModule} from 'ng2-dnd';
     DropdownDirective,
     DocumentEditComponent,
     ContactEditComponent,
+    ContactsFilterPipe,
     //ContactsFilterPipe
   ],
   imports: [
